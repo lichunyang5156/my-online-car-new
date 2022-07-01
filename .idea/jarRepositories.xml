@@ -4,6 +4,16 @@
     <remote-repository>
       <option name="id" value="snapshots" />
       <option name="name" value="Snapshot Repositories" />
+      <option name="url" value="https://repo.opayweb.com/repository/maven-snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="snapshots" />
+      <option name="name" value="Snapshot Repositories" />
       <option name="url" value="https://repo.opayweb.com/repository/maven-public/" />
     </remote-repository>
     <remote-repository>
@@ -25,6 +35,16 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="releases" />
+      <option name="name" value="Release Repositories" />
+      <option name="url" value="https://repo.opayweb.com/repository/maven-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repositories" />
+      <option name="url" value="https://repo.opayweb.com/repository/maven-central/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />

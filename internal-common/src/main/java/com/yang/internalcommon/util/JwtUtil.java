@@ -59,27 +59,7 @@ public class JwtUtil {
         return null;
     }
 
-    public static void main(String[] args) {
-        String subject = "1";
-        String token = createToken(subject,new Date());
-//        System.out.println(token);
-//        try {
-//			Thread.sleep(10010);
-////        	Thread.sleep(100);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-        System.out.println("原始值："+parseToken(token).getSubject()+" "+parseToken(token).getIssueDate());
-//        byte[] byte1 = Base64.getDecoder().decode("eyJzdWIiOiIxIn0");
-//        String s = null;
-//        try {
-//            s = new String(byte1, "utf-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("解码后："+s);
-    }
+
 
 }
 

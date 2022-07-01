@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * 鉴权filter
  * @author yueyi2019
  */
-@Component
+//@Component
 public class AuthFilter extends ZuulFilter {
 
 	@Autowired
