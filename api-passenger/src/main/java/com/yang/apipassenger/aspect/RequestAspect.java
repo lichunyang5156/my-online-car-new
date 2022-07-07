@@ -1,6 +1,7 @@
 package com.yang.apipassenger.aspect;
 
 import com.yang.apipassenger.gray.RibbonParameters;
+import io.jmnarloch.spring.cloud.ribbon.support.RibbonFilterContextHolder;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -42,6 +43,12 @@ public class RequestAspect {
         map.put("userId",userId);
         map.put("version",version);
         RibbonParameters.set(map);
+
+
+        //todo 也可以使用jmnarloch框架来实现灰度策略
+        if (version.equals("v1")){
+            RibbonFilterContextHolder.getCurrentContext().add("version","v1");
+        }
     }
 
 

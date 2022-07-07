@@ -8,22 +8,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="my-online-car" />
-        <module name="internal-common" />
-        <module name="cloud-zuul" />
-        <module name="service-sms" />
         <module name="api-passenger" />
+        <module name="cloud-zuul" />
         <module name="eureka-server" />
+        <module name="internal-common" />
+        <module name="my-online-car" />
+        <module name="service-sms" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="api-passenger" options="-parameters" />
-      <module name="cloud-zuul" options="-parameters" />
-      <module name="eureka-server" options="-parameters" />
-      <module name="internal-common" options="-parameters" />
-      <module name="service-sms" options="-parameters" />
-    </option>
+    <bytecodeTargetLevel>
+      <module name="api-passenger" target="1.8" />
+      <module name="cloud-zuul" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="internal-common" target="1.8" />
+      <module name="my-online-car" target="1.8" />
+      <module name="service-sms" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-//@Component
+@Component
 public class GrayFilter extends ZuulFilter {
 
     @Override
@@ -26,16 +27,16 @@ public class GrayFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return false;
+        return true;
     }
 
-    @Autowired
+    @Resource
     private CommonGrayRuleDaoCustom commonGrayRuleDaoCustom;
 
     @Override
     public Object run() throws ZuulException {
 
-
+        //通过zuul上下文获取请求参数
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
 
@@ -44,6 +45,7 @@ public class GrayFilter extends ZuulFilter {
 
         // 金丝雀
         if (userId == 1){
+            //框架， 实现通过 metadata 进行灰度路由
             RibbonFilterContextHolder.getCurrentContext().add("version","v1");
             // 普通用户
         }else if (userId == 2){
