@@ -18,6 +18,11 @@
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-annotation-aspectj</artifactId>
+            <version>1.4.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.yang</groupId>
