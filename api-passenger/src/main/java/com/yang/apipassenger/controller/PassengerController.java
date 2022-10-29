@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -12,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 public class PassengerController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplate;  //restTemplate
 
     @PostMapping("/getPassengerInfo")
     public String getPassengerInfo(){
@@ -21,6 +22,11 @@ public class PassengerController {
 
     @GetMapping("/call")
     public String testCall(){
-        return restTemplate.getForObject("http://service-sms/test/sms-test",String.class);
+        try {
+            return restTemplate.getForObject("http://service-sms/sms/sms-test",String.class);
+        } catch (RestClientException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

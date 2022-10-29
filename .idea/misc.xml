@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/internal-common/pom.xml" />
         <option value="$PROJECT_DIR$/service-sms/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/service-user/pom.xml" />
+        <option value="$PROJECT_DIR$/user-api/pom.xml" />
       </list>
     </option>
   </component>

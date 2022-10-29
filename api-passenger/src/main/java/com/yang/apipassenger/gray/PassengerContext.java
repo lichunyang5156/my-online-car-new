@@ -3,7 +3,7 @@ package com.yang.apipassenger.gray;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RibbonParameters {
+public class PassengerContext {
 
     private static final ThreadLocal local=new ThreadLocal();
 
