@@ -19,20 +19,21 @@ import java.util.List;
  **/
 public class Test {
 
-  private static final BigDecimal rate= new BigDecimal("0.04645");
+//  private static final BigDecimal rate= new BigDecimal("0.04645");
+  private static final BigDecimal rate= new BigDecimal("0.043");
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) {
 
-    String downloadUrl="/Users/cherry/Documents/LCY/HK/提前还款计划/20w.xlsx";
-    BigDecimal totalAmount=new BigDecimal("1186666.8");
-    int month= 222;
-    BigDecimal monthAmount= new BigDecimal("5333.33");
+    String downloadUrl="/Users/cherry/Documents/LCY/HK/提前还款计划/2023-12-25-45w.xlsx";
+    BigDecimal totalAmount=new BigDecimal("694460.73");//总剩余贷款额
+    int month= 212;//剩余还款月数
+    BigDecimal monthAmount= new BigDecimal("3275.76");//当前月还款本金
+    BigDecimal reduceMonthAmount= new BigDecimal("1153.12");//减少月供方式，提前还款后，每月还款本金
+    totalAmount=totalAmount.subtract(new BigDecimal("450000"));//提前还款金额
     List<Repayment> currentPlanList = computeCurrentPlan(monthAmount, totalAmount, month);//当前还款计划
-    BigDecimal reduceMonthAmount= new BigDecimal("4434.46");
-    totalAmount=totalAmount.subtract(new BigDecimal("200000"));
     List<Repayment> reduceMonthRepaymentsList = computeCurrentPlan(reduceMonthAmount, totalAmount, month);//减少月供
 
-    List<Repayment> reduceMonthAmountRepaymentsList = computeReduceMonthAmount(totalAmount);
+    List<Repayment> reduceMonthAmountRepaymentsList = computeReduceMonthAmount(totalAmount,monthAmount);//减少还款时间
     ExcelWriter excelWriter=null;
     try {
 //      EasyExcelUtil.moreWrite(map,downloadUrl,null);
@@ -67,7 +68,7 @@ public class Test {
 
   private static List<Repayment> computeCurrentPlan(BigDecimal monthAmount,BigDecimal totalAmount,int month){
     BigDecimal currentAmount=totalAmount;
-    List<Repayment> list=new ArrayList<>(222);
+    List<Repayment> list=new ArrayList<>();
     BigDecimal totalRateAmount=new BigDecimal("0");
     for (int i=1;i<=month;i++){
       Repayment repayment=new Repayment();
@@ -86,11 +87,11 @@ public class Test {
     return list;
   }
 
-  private static List<Repayment> computeReduceMonthAmount(BigDecimal totalAmount) {
+  private static List<Repayment> computeReduceMonthAmount(BigDecimal totalAmount,BigDecimal monthAmount) {
     BigDecimal currentAmount = totalAmount;
-    BigDecimal rate = new BigDecimal("0.04645");
-    BigDecimal monthAmount = new BigDecimal("5333.33");
-    List<Repayment> list = new ArrayList<>(222);
+//    BigDecimal rate = new BigDecimal("0.043");
+
+    List<Repayment> list = new ArrayList<>();
     BigDecimal totalRateAmount = new BigDecimal("0");
     int num = 1;
     while (currentAmount.compareTo(new BigDecimal("0")) > 0) {

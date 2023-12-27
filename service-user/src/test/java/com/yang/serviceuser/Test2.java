@@ -20,10 +20,10 @@ public class Test2 {
   public static void main(String[] args) throws Exception {
 
 
-    BigDecimal currentAmount=new BigDecimal("1086666.8");
+    BigDecimal currentAmount=new BigDecimal("717391.05");
     BigDecimal rate= new BigDecimal("0.04645");
-    BigDecimal monthAmount= new BigDecimal("5333.33");
-    List<Repayment> list=new ArrayList<>(222);
+    BigDecimal monthAmount= new BigDecimal("3275.76");
+    List<Repayment> list=new ArrayList<>(219);
     BigDecimal totalRateAmount=new BigDecimal("0");
     int num=1;
     while (currentAmount.compareTo(new BigDecimal("0"))>0){
