@@ -20,17 +20,17 @@ import java.util.List;
 public class Test {
 
 //  private static final BigDecimal rate= new BigDecimal("0.04645");
-  private static final BigDecimal rate= new BigDecimal("0.043");
+  private static final BigDecimal rate= new BigDecimal("0.042");
 
   public static void main(String[] args) {
 
-    String downloadUrl="/Users/cherry/Documents/LCY/HK/提前还款计划/2023-12-25-45w.xlsx";
-    BigDecimal totalAmount=new BigDecimal("694460.73");//总剩余贷款额
-    int month= 212;//剩余还款月数
+    String downloadUrl="/Users/cherry/Documents/LCY/HK/提前还款计划/2024-02-07-45w.xlsx";
+    BigDecimal totalAmount=new BigDecimal("687909.21");//总剩余贷款额
+    int month= 210;//剩余还款月数
     BigDecimal monthAmount= new BigDecimal("3275.76");//当前月还款本金
-    BigDecimal reduceMonthAmount= new BigDecimal("1153.12");//减少月供方式，提前还款后，每月还款本金
-    totalAmount=totalAmount.subtract(new BigDecimal("450000"));//提前还款金额
+    BigDecimal reduceMonthAmount= new BigDecimal("1132.9");//减少月供方式，提前还款后，每月还款本金
     List<Repayment> currentPlanList = computeCurrentPlan(monthAmount, totalAmount, month);//当前还款计划
+    totalAmount=totalAmount.subtract(new BigDecimal("450000"));//提前还款金额
     List<Repayment> reduceMonthRepaymentsList = computeCurrentPlan(reduceMonthAmount, totalAmount, month);//减少月供
 
     List<Repayment> reduceMonthAmountRepaymentsList = computeReduceMonthAmount(totalAmount,monthAmount);//减少还款时间

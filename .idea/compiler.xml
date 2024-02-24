@@ -14,6 +14,7 @@
         <module name="user-api" />
         <module name="api-passenger" />
         <module name="service-user" />
+        <module name="pattern-design-server" />
         <module name="service-sms" />
         <module name="eureka-server" />
       </profile>
@@ -25,6 +26,7 @@
       <module name="cloud-zuul" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="internal-common" options="-parameters" />
+      <module name="pattern-design-server" options="-parameters" />
       <module name="service-sms" options="-parameters" />
       <module name="service-user" options="-parameters" />
       <module name="user-api" options="-parameters" />
