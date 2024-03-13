@@ -14,6 +14,7 @@
         <module name="user-api" />
         <module name="api-passenger" />
         <module name="service-user" />
+        <module name="daily-test-server" />
         <module name="pattern-design-server" />
         <module name="service-sms" />
         <module name="eureka-server" />
@@ -24,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-passenger" options="-parameters" />
       <module name="cloud-zuul" options="-parameters" />
+      <module name="daily-test-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="internal-common" options="-parameters" />
       <module name="pattern-design-server" options="-parameters" />
