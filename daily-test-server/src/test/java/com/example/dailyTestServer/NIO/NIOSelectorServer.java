@@ -5,10 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
@@ -23,18 +21,21 @@ public class NIOSelectorServer {
         Selector selector = Selector.open();
         SelectionKey serverSocketKey = serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         while (true){
-
             int count = selector.select();
             log.info("select event count:"+count);
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = selectionKeys.iterator();
             while (iterator.hasNext()){
                 SelectionKey selectionKey = iterator.next();
+                //有客户端请求建立连接
                 if (selectionKey.isAcceptable()){
                     handleAccept(selectionKey);
                 }else if (selectionKey.isWritable()){
+                    //有客户端发送数据
                     handleRead(selectionKey);
                 }
+                SelectableChannel channel = selectionKey.channel();
+                log.info("channel：{}",channel);
                 iterator.remove();
             }
         }
@@ -57,7 +58,10 @@ public class NIOSelectorServer {
         ByteBuffer readBuffer = ByteBuffer.allocate(8);
         int len = socketChannel.read(readBuffer);
         if (len>0){
-
+            log.info("receive message from client.client:{} message:{}",socketChannel.getRemoteAddress(),
+                    new String(readBuffer.array(),0,len, StandardCharsets.UTF_8));
+        }else if (len==-1){
+            socketChannel.close();
         }
     }
 }

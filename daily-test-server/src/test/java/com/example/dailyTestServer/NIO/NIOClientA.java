@@ -12,12 +12,14 @@ import java.nio.charset.StandardCharsets;
 public class NIOClientA {
 
     public static void main(String[] args) throws IOException {
-        try (SocketChannel socketChannel = SocketChannel.open()) {
+        SocketChannel socketChannel = SocketChannel.open();
+        try {
             socketChannel.connect(new InetSocketAddress("127.0.0.1", 8080));
             log.info("client connect finished");
             ByteBuffer wrap = ByteBuffer.wrap("hello".getBytes(StandardCharsets.UTF_8));
             socketChannel.write(wrap);
             log.info("client send finish");
+            socketChannel.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
