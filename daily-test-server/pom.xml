@@ -38,6 +38,13 @@
             <artifactId>jedis</artifactId>
             <version>3.7.0</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>3.17.5</version>
+        </dependency>
     </dependencies>
 
     <build>
