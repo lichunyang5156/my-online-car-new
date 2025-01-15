@@ -1,5 +1,8 @@
 package com.yang.patternDesignServer.template;
 
+/**
+ * 模板方法设计模式
+ */
 public abstract class AbstractDBHandler {
 
     public final void executeDBOperate(){
