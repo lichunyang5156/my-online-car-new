@@ -9,7 +9,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="internal-common" />
-        <module name="my-online-car" />
         <module name="cloud-zuul" />
         <module name="user-api" />
         <module name="api-passenger" />
